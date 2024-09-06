@@ -1,0 +1,4 @@
+Flask==3.0.3
+slack-sdk==3.11.0
+requests==2.26.0
+python-dotenv==0.19.2
