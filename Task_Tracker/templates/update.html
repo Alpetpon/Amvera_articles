@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Task</h1>
+
+        <form action="{{ url_for('update_task', id=task.id) }}" method="POST" class="task-form">
+            <input type="text" name="content" value="{{ task.content }}" required>
+            <input type="text" name="date" value="{{ task.deadline.strftime('%d.%m.%Y') if task.deadline else '' }}" placeholder="Deadline Date (dd.mm.yyyy)">
+            <input type="text" name="time" value="{{ task.deadline.strftime('%H:%M') if task.deadline else '' }}" placeholder="Deadline Time (hh:mm)">
+            <button type="submit" class="add-btn">Update Task</button>
+        </form>
+
+        <a href="{{ url_for('index') }}" class="back-link">Back to Task List</a>
+    </div>
+</body>
+</html>
